@@ -8,9 +8,10 @@ import { setHost } from "./restjsonapi/services/api";
 import { BrowserRouter } from "react-router-dom";
 import { ConfigProvider } from 'antd';
 import plPl from 'antd/lib/locale/pl_PL';
-import TestItem from './test/TestItem'
+import { setMenuRoute } from "./restjsonapi/ts/leftmenu";
 
 setHost("http://perseus:8999");
+setMenuRoute({ rootredirect: '/customers' })
 
 
 readResource()
