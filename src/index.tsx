@@ -3,25 +3,27 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import readResource from "./restjsonapi/ts/readresource";
+import init from "./restjsonapi/ts/init";
 import { setHost } from "./restjsonapi/services/api";
 import { BrowserRouter } from "react-router-dom";
 import { ConfigProvider } from 'antd';
 import plPl from 'antd/lib/locale/pl_PL';
 import { setMenuRoute } from "./restjsonapi/ts/leftmenu";
+import CustomRouter, { history } from './restjsonapi/ts/CustomRouter'
 
 setHost("http://perseus:8999");
 setMenuRoute({ rootredirect: '/customers' })
 
 
-readResource()
+
+init()
   .then(() =>
     ReactDOM.render(
       <React.StrictMode>
         <ConfigProvider locale={plPl}>
-          <BrowserRouter>
+          <CustomRouter history={history} basename="/" >
             <App />
-          </BrowserRouter>
+          </CustomRouter>
         </ConfigProvider>
       </React.StrictMode>,
       document.getElementById("root")
