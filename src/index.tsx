@@ -5,18 +5,21 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import init from "./restjsonapi/ts/init";
 import { setHost } from "./restjsonapi/services/api";
-import { BrowserRouter } from "react-router-dom";
 import { ConfigProvider } from 'antd';
 import plPl from 'antd/lib/locale/pl_PL';
 import { setMenuRoute } from "./restjsonapi/ts/leftmenu";
 import CustomRouter, { history } from './restjsonapi/ts/CustomRouter'
+import { getOrigin, isDev } from "./restjsonapi/ts/j";
+import { log } from "./restjsonapi/ts/l";
 
 setHost("http://perseus:8999");
 setMenuRoute({ rootredirect: '/customers' })
 
+const hostname: string = isDev() ? 'perseus' : getOrigin()[0]
 
+log(isDev() ? `Development hostname ${hostname}` : `Production hostname ${hostname}`)
 
-init()
+init(hostname)
   .then(() =>
     ReactDOM.render(
       <React.StrictMode>
