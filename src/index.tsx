@@ -11,6 +11,7 @@ import { setMenuRoute } from "./restjsonapi/ts/leftmenu";
 import CustomRouter, { history } from './restjsonapi/ts/CustomRouter'
 import { getOrigin, isDev } from "./restjsonapi/ts/j";
 import { log } from "./restjsonapi/ts/l";
+import { BrowserRouter, Router } from "react-router-dom";
 
 setHost("http://perseus:8999");
 setMenuRoute({ rootredirect: '/customers' })
@@ -41,6 +42,29 @@ init(hostname)
     )
   );
 
+/*
+init(hostname)
+  .then(() =>
+    ReactDOM.render(
+      <React.StrictMode>
+        <ConfigProvider locale={plPl}>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </ConfigProvider>
+      </React.StrictMode>,
+      document.getElementById("root")
+    )
+  )
+  .catch(() =>
+    ReactDOM.render(
+      <React.StrictMode>
+        <h1> Cannot start the application, probably the network error</h1>
+      </React.StrictMode>,
+      document.getElementById("root")
+    )
+  );
+*/
 
 /*
 ReactDOM.render(
