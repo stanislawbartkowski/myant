@@ -13,7 +13,7 @@ import { getOrigin, isDev } from "./restjsonapi/ts/j";
 import { log } from "./restjsonapi/ts/l";
 import { BrowserRouter, Router } from "react-router-dom";
 
-setHost("http://perseus:8999");
+// setHost("http://perseus:8999");
 setMenuRoute({ rootredirect: '/customers' })
 
 const hostname: string = isDev() ? 'perseus' : getOrigin()[0]
