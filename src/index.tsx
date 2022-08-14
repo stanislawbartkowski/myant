@@ -11,7 +11,7 @@ import { setMenuRoute } from "./restjsonapi/ts/leftmenu";
 import CustomRouter, { history } from './restjsonapi/ts/CustomRouter'
 import { getOrigin, isDev } from "./restjsonapi/ts/j";
 import { log } from "./restjsonapi/ts/l";
-import { BrowserRouter, Router } from "react-router-dom";
+import { createRoot } from 'react-dom/client';
 
 // setHost("http://perseus:8999");
 setMenuRoute({ rootredirect: '/customers' })
@@ -19,6 +19,9 @@ setMenuRoute({ rootredirect: '/customers' })
 const hostname: string = isDev() ? 'perseus' : getOrigin()[0]
 
 log(isDev() ? `Development hostname ${hostname}` : `Production hostname ${hostname}`)
+
+const container = document.getElementById("root")
+const root = createRoot(container!);
 
 init(hostname)
   .then(() =>
@@ -78,3 +81,4 @@ ReactDOM.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
