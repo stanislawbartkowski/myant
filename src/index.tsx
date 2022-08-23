@@ -4,7 +4,6 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import init from "./restjsonapi/ts/init";
-import { setHost } from "./restjsonapi/services/api";
 import { ConfigProvider } from 'antd';
 import plPl from 'antd/lib/locale/pl_PL';
 import { setMenuRoute } from "./restjsonapi/ts/leftmenu";
@@ -12,6 +11,8 @@ import CustomRouter, { history } from './restjsonapi/ts/CustomRouter'
 import { getOrigin, isDev } from "./restjsonapi/ts/j";
 import { log } from "./restjsonapi/ts/l";
 import { createRoot } from 'react-dom/client';
+import { ReactKeycloakProvider } from "@react-keycloak/web";
+import keycloak from "./restjsonapi/ts/keyclock";
 
 // setHost("http://perseus:8999");
 setMenuRoute({ rootredirect: '/customers' })
@@ -27,11 +28,14 @@ init(hostname)
   .then(() =>
     ReactDOM.render(
       <React.StrictMode>
-        <ConfigProvider locale={plPl}>
-          <CustomRouter history={history} basename="/" >
-            <App />
-          </CustomRouter>
-        </ConfigProvider>
+        <ReactKeycloakProvider authClient={keycloak}>
+
+          <ConfigProvider locale={plPl}>
+            <CustomRouter history={history} basename="/" >
+              <App />
+            </CustomRouter>
+          </ConfigProvider>
+        </ReactKeycloakProvider>
       </React.StrictMode>,
       document.getElementById("root")
     )
