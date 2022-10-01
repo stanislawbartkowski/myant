@@ -17,7 +17,7 @@ import keycloak from "./restjsonapi/ts/keyclock";
 // setHost("http://perseus:8999");
 setMenuRoute({ rootredirect: '/customers' })
 
-const hostname: string = isDev() ? 'perseus' : getOrigin()[0]
+const hostname: string = isDev() ? 'thinkarek' : getOrigin()[0]
 
 log(isDev() ? `Development hostname ${hostname}` : `Production hostname ${hostname}`)
 
