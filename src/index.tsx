@@ -27,6 +27,7 @@ const root = createRoot(container!);
 init(hostname)
   .then(() =>
     ReactDOM.render(
+//    root.render(
       <React.StrictMode>
         <ReactKeycloakProvider authClient={keycloak}>
 
