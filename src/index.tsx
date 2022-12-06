@@ -11,7 +11,6 @@ import CustomRouter, { history } from './restjsonapi/ts/CustomRouter'
 import { getOrigin, isDev } from "./restjsonapi/ts/j";
 import { log } from "./restjsonapi/ts/l";
 import { createRoot } from 'react-dom/client';
-import { initkeyclock } from "./restjsonapi/ts/keyclock";
 //import keycloak from "./restjsonapi/ts/keyclock";
 
 // setHost("http://perseus:8999");
