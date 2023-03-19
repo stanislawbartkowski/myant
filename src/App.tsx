@@ -1,5 +1,5 @@
 import { FC } from "react";
-import "antd/dist/antd.css";
+import "antd/dist/reset.css";
 import AppLayout from "./restjsonapi/layouts/AppLayout";
 
 const App: FC = () => <AppLayout />
