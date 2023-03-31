@@ -14,7 +14,8 @@ import { createRoot } from 'react-dom/client';
 //import keycloak from "./restjsonapi/ts/keyclock";
 
 // setHost("http://perseus:8999");
-const dev_hostname = 'thinkde'
+//const dev_hostname = 'thinkde'
+const dev_hostname = 'ubun'
 setMenuRoute({ rootredirect: '/customers' })
 
 const hostname: string = isDev() ? dev_hostname : getOrigin()[0]
