@@ -8,26 +8,18 @@ import { ConfigProvider } from 'antd';
 import plPl from 'antd/lib/locale/pl_PL';
 import { setMenuRoute } from "./restjsonapi/ts/leftmenu";
 import CustomRouter, { history } from './restjsonapi/ts/CustomRouter'
-import { getOrigin, isDev } from "./restjsonapi/ts/j";
 import { log } from "./restjsonapi/ts/l";
 import { createRoot } from 'react-dom/client';
 //import keycloak from "./restjsonapi/ts/keyclock";
 
 // setHost("http://perseus:8999");
 //const dev_hostname = 'thinkde'
-const dev_hostname = 'ubun'
 setMenuRoute({ rootredirect: '/customers' })
-
-const hostname: string = isDev() ? dev_hostname : getOrigin()[0]
-const protocol: string = getOrigin()[1]
-const port: number | undefined = isDev() ? undefined : getOrigin()[2]
-
-log(isDev() ? `Development hostname ${hostname}` : `Production hostname ${hostname}`)
 
 const container = document.getElementById("root")
 const root = createRoot(container!);
 
-init(hostname, protocol, port)
+init()
   .then(() =>
     ReactDOM.render(
       //    root.render(
