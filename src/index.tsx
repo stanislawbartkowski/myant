@@ -10,10 +10,7 @@ import { setMenuRoute } from "./restjsonapi/ts/leftmenu";
 import CustomRouter, { history } from './restjsonapi/ts/CustomRouter'
 import { log } from "./restjsonapi/ts/l";
 import { createRoot } from 'react-dom/client';
-//import keycloak from "./restjsonapi/ts/keyclock";
 
-// setHost("http://perseus:8999");
-//const dev_hostname = 'thinkde'
 setMenuRoute({ rootredirect: '/customers' })
 
 const container = document.getElementById("root")
@@ -21,17 +18,17 @@ const root = createRoot(container!);
 
 init()
   .then(() =>
-    ReactDOM.render(
-      //    root.render(
-      <React.StrictMode>
+    //ReactDOM.render(
+      root.render(
+//      <React.StrictMode>
 
           <ConfigProvider locale={plPl}>
             <CustomRouter history={history} basename="/" >
               <App />
             </CustomRouter>
           </ConfigProvider>
-      </React.StrictMode>,
-      document.getElementById("root")
+//      </React.StrictMode>,
+//      document.getElementById("root")
     )
   )
   .catch(() =>
